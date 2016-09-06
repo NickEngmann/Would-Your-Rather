@@ -19,9 +19,9 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
         self.TopQuestion.text = Questions[Int(arc4random_uniform(8))]
         self.BottomQuestion.text = Questions[Int(arc4random_uniform(8))]
-        self.NextButton.addTarget(self, action: "buttonClicked",  forControlEvents: .TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,9 +29,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func buttonClicked(_ sender: AnyObject?) {
-            self.TopQuestion.text = Questions[Int(arc4random_uniform(8))]
-            self.BottomQuestion.text = Questions[Int(arc4random_uniform(8))]
+
+    func handleTap(sender: UITapGestureRecognizer) {
+        self.TopQuestion.text = Questions[Int(arc4random_uniform(8))]
+    }
+    @IBAction func NextTapped(sender: UIButton) {
+        self.TopQuestion.text = Questions[Int(arc4random_uniform(8))]
+        self.BottomQuestion.text = Questions[Int(arc4random_uniform(8))]
+    }
+    @IBAction func TopQuestionTapped(sender: UIButton) {
+        self.TopQuestion.text = Questions[Int(arc4random_uniform(8))]
+        self.BottomQuestion.text = Questions[Int(arc4random_uniform(8))]
+    }
+    @IBAction func BottomQuestionTapped(sender: UIButton) {
+        self.TopQuestion.text = Questions[Int(arc4random_uniform(8))]
+        self.BottomQuestion.text = Questions[Int(arc4random_uniform(8))]
     }
 }
 
